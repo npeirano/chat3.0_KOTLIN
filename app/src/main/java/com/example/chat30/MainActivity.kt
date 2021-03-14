@@ -2,6 +2,9 @@ package com.example.chat30
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
+import android.widget.ImageButton
+import android.widget.ImageView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,6 +16,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +42,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        val headerLayout: View = navView.getHeaderView(0)
+        val botonChannel = headerLayout.findViewById<ImageView>(R.id.btnAddChannel);
+
+        botonChannel.setOnClickListener {
+            navView.menu.getItem(0).setVisible(false)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
