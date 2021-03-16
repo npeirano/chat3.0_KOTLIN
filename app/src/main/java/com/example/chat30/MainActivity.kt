@@ -1,5 +1,6 @@
 package com.example.chat30
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -42,12 +43,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        val headerLayout: View = navView.getHeaderView(0)
+       /* val headerLayout: View = navView.getHeaderView(0)
         val botonChannel = headerLayout.findViewById<ImageView>(R.id.btnAddChannel);
-
         botonChannel.setOnClickListener {
-            navView.menu.getItem(0).setVisible(false)
-        }
+            navView.menu.add("Nuevo")
+        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -55,7 +55,10 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-
+    fun btnLoginClicked(view: View) {
+            val loginIntent = Intent(this, login::class.java)
+            startActivity(loginIntent)
+    }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
