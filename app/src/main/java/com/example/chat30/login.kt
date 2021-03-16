@@ -1,5 +1,6 @@
 package com.example.chat30
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,7 +15,9 @@ class login : AppCompatActivity() {
 
     }
     fun loginCreateUserBtnClicked(view: View) {
-
+        val createUserIntent = Intent(this, RegisterUserActivity::class.java)
+        startActivity(createUserIntent)
     }
+
 
 }
